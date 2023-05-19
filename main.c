@@ -18,5 +18,7 @@ int main(int argc, char *argv[])
   t_list *stack_b;
   stack_a = ft_init(argc, argv);
   print_list(stack_a);
+  ft_printf("\nStack b:\n");
+  // print_list(stack_b);
   return 0;
 }

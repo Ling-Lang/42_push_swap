@@ -22,4 +22,7 @@ void ft_add_content(t_list **lst, void *content_to_add);
 void print_list(t_list *lst);
 void ft_fill_list(t_list **lst, int argc, char *argv[]);
 t_list *ft_init(int argc, char *argv[]);
+void pb(t_list **stack_a, t_list **stack_b);
+void sb(t_list **stack_b);
+void pa(t_list **stack_b, t_list **stack_a);
 #endif
