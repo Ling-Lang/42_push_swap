@@ -35,3 +35,10 @@ void sb(t_list **stack_b)
     }
 }
 
+void ss(t_list **stack_a, t_list **stack_b)
+{
+    sa(stack_a);
+    sa(stack_b);
+}
+
+

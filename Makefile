@@ -11,6 +11,7 @@ SRC = main.c \
 	instructions_p.c \
 	instructions_r.c \
 	instructions_r2.c \
+	push_swap.c 	\
 
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ) | lft

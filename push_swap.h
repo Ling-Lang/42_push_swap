@@ -25,4 +25,12 @@ t_list *ft_init(int argc, char *argv[]);
 void pb(t_list **stack_a, t_list **stack_b);
 void sb(t_list **stack_b);
 void pa(t_list **stack_b, t_list **stack_a);
+void ss(t_list **stack_a, t_list **stack_b);
+void ra(t_list **stack_a);
+void rb(t_list **stack_b);
+void rr(t_list **stack_a, t_list **stack_b);
+void rra(t_list **stack_a);
+void rrb(t_list **stack_b);
+void rrr(t_list **stack_a, t_list **stack_b);
+void simple_sort(t_list **stack_a, t_list **stack_b, int size);
 #endif
