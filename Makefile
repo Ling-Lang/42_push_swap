@@ -6,6 +6,7 @@ CFLAGS = -Wall -Wextra
 LIB 		= libft/libft.a
 
 SRC = main.c \
+			list_utils.c \
 
 OBJ = $(SRC:.c=.o)
 
