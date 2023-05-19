@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:34:33 by dylan             #+#    #+#             */
-/*   Updated: 2023/05/18 18:34:34 by dylan            ###   ########.fr       */
+/*   Updated: 2023/05/19 13:39:12 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,6 @@
 # define BLU "\e[0;34m"
 void ft_add_content(t_list **lst, void *content_to_add);
 void print_list(t_list *lst);
+void ft_fill_list(t_list **lst, int argc, char *argv[]);
+t_list *ft_init(int argc, char *argv[]);
 #endif

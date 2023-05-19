@@ -31,3 +31,16 @@ void print_list(t_list *lst)
     lst = lst->next;
   }
 }
+
+void ft_fill_list(t_list **lst, int argc, char *argv[])
+{
+    int j = 1;
+    while(j < argc)
+    {
+        int *data = malloc(sizeof(int));
+        *data = ft_atoi(argv[j]);
+        ft_add_content(lst, data);
+        j++;
+    }
+}
+
