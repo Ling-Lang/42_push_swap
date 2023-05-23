@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:34:39 by dylan             #+#    #+#             */
-/*   Updated: 2023/05/18 18:34:41 by dylan            ###   ########.fr       */
+/*   Updated: 2023/05/23 11:01:51 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,37 @@ void simple_sort(t_list **stack_a, t_list **stack_b, int size)
         pa(stack_b, stack_a);
     }
 }
+
+void bubble_sort(t_list **stack_a, t_list **stack_b, int size)
+{
+    int i = 0;
+    int j = 0;
+    t_list *tmp;
+
+    while (i < size)
+    {
+        j = 0;
+        while (j < size - i - 1)
+        {
+            tmp = *stack_a;
+            if (tmp->content > tmp->next->content)
+            {
+                sa(stack_a); // Swap if the current element is greater than the next
+            }
+            ra(stack_a); // Rotate stack_a
+            j++;
+        }
+        pb(stack_a, stack_b); // Push the largest element to stack_b
+        i++;
+    }
+
+    while (i-- > 0)
+    {
+        pa(stack_a, stack_b); // Push all elements back to stack_a
+    }
+}
+
+
 
 
 

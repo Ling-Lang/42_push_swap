@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:34:33 by dylan             #+#    #+#             */
-/*   Updated: 2023/05/19 13:39:12 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/05/23 11:03:11 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void ft_fill_list(t_list **lst, int argc, char *argv[]);
 t_list *ft_init(int argc, char *argv[]);
 void pb(t_list **stack_a, t_list **stack_b);
 void sb(t_list **stack_b);
+void sa(t_list **stack_a);
 void pa(t_list **stack_b, t_list **stack_a);
 void ss(t_list **stack_a, t_list **stack_b);
 void ra(t_list **stack_a);
@@ -33,4 +34,5 @@ void rra(t_list **stack_a);
 void rrb(t_list **stack_b);
 void rrr(t_list **stack_a, t_list **stack_b);
 void simple_sort(t_list **stack_a, t_list **stack_b, int size);
+void bubble_sort(t_list **stack_a, t_list **stack_b, int size);
 #endif
