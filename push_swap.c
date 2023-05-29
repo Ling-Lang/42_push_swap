@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:34:39 by dylan             #+#    #+#             */
-/*   Updated: 2023/05/23 11:01:51 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/05/29 12:15:37 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,34 +46,43 @@ void simple_sort(t_list **stack_a, t_list **stack_b, int size)
     }
 }
 
-void bubble_sort(t_list **stack_a, t_list **stack_b, int size)
+void    insertion_sort(t_list **stack_a, t_list **stack_b, int size)
 {
-    int i = 0;
-    int j = 0;
+    int i, j;
     t_list *tmp;
+    t_list *min_node;
 
-    while (i < size)
+    for (i = 0; i < size; i++)
     {
-        j = 0;
-        while (j < size - i - 1)
+        min_node = *stack_a;
+        tmp = *stack_a;
+        for (j = 0; j < size - i; j++)
         {
-            tmp = *stack_a;
-            if (tmp->content > tmp->next->content)
+            if (*(int *)tmp->content < *(int *)min_node->content)
             {
-                sa(stack_a); // Swap if the current element is greater than the next
+                min_node = tmp;
             }
-            ra(stack_a); // Rotate stack_a
-            j++;
+            ra(stack_a);
+            tmp = *stack_a;
         }
-        pb(stack_a, stack_b); // Push the largest element to stack_b
-        i++;
+
+        while (*stack_a != min_node)
+        {
+            ra(stack_a);
+        }
+
+        pb(stack_a, stack_b);
     }
 
-    while (i-- > 0)
+    for (i = 0; i < size; i++)
     {
-        pa(stack_a, stack_b); // Push all elements back to stack_a
+        pa(stack_b, stack_a);
     }
 }
+
+
+
+
 
 
 
