@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:34:39 by dylan             #+#    #+#             */
-/*   Updated: 2023/05/29 12:15:37 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/05/30 11:25:51 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,19 @@ void simple_sort(t_list **stack_a, t_list **stack_b, int size)
     }
 }
 
-void    insertion_sort(t_list **stack_a, t_list **stack_b, int size)
+void insertion_sort(t_list **stack_a, t_list **stack_b, int size)
 {
     int i, j;
     t_list *tmp;
     t_list *min_node;
 
-    for (i = 0; i < size; i++)
+    i = 0;
+    while (i < size)
     {
         min_node = *stack_a;
         tmp = *stack_a;
-        for (j = 0; j < size - i; j++)
+        j = 0;
+        while (j < size - i)
         {
             if (*(int *)tmp->content < *(int *)min_node->content)
             {
@@ -64,6 +66,7 @@ void    insertion_sort(t_list **stack_a, t_list **stack_b, int size)
             }
             ra(stack_a);
             tmp = *stack_a;
+            j++;
         }
 
         while (*stack_a != min_node)
@@ -72,13 +75,18 @@ void    insertion_sort(t_list **stack_a, t_list **stack_b, int size)
         }
 
         pb(stack_a, stack_b);
+        i++;
     }
 
-    for (i = 0; i < size; i++)
+    i = 0;
+    while (i < size)
     {
         pa(stack_b, stack_a);
+        i++;
     }
 }
+
+
 
 
 

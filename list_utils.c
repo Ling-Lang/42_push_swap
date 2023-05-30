@@ -43,4 +43,24 @@ void ft_fill_list(t_list **lst, int argc, char *argv[])
         j++;
     }
 }
+void reverseLinkedList(t_list **list)
+{
+    t_list *current = *list;
+    t_list *previous = NULL;
+    t_list *next = NULL;
+
+    while (current != NULL) {
+        next = current->next;  // Store the next node
+
+        // Reverse the link
+        current->next = previous;
+
+        // Move pointers one position ahead
+        previous = current;
+        current = next;
+    }
+
+    // Update the head of the list
+    *list = previous;
+}
 

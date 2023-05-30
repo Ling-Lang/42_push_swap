@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:34:29 by dylan             #+#    #+#             */
-/*   Updated: 2023/05/29 12:36:30 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/05/30 12:22:02 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,17 @@ int main(int argc, char *argv[]) {
     size = argc - 1; // The size of stack_a is argc - 1
 
     stack_a = ft_init(argc, argv);
-    insertion_sort(&stack_a, &stack_b, size);
-
+    if(size <= 5 && size > 3)
+    {
+        simple_sort(&stack_a, &stack_b, size);
+        reverseLinkedList(&stack_a);
+    }
+    else if(size > 5)
+    {
+        insertion_sort(&stack_a, &stack_b, size);
+        reverseLinkedList(&stack_a);
+    }
+        
+    // print_list(stack_a);
     return 0;
 }
