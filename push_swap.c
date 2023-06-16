@@ -3,20 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:34:39 by dylan             #+#    #+#             */
-/*   Updated: 2023/05/30 11:25:51 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/06/16 12:15:59 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void simple_sort(t_list **stack_a, t_list **stack_b, int size)
+void mini_sort(t_stack **stack_a, t_stack **stack_b)
+{
+    t_stack *tmp_a;
+    t_stack *tmp_b;
+    tmp_a = *stack_a;
+    tmp_b = *stack_b;
+    int size;
+    
+    size = list_size(*stack_a);
+    if(size == 2)
+    {
+        if(tmp_a->content > tmp_a->next->content)
+        {
+            sa(&tmp_a);
+        }
+    }
+    else
+    {
+        simple_sort(&tmp_a, &tmp_b, size);
+    }
+    return ;
+}
+
+void simple_sort(t_stack **stack_a, t_stack **stack_b, int size)
 {
     int i, j;
-    t_list *tmp;
-    t_list *min_node;
+    t_stack *tmp;
+    t_stack *min_node;
 
     for (i = 0; i < size; i++)
     {
@@ -24,7 +47,7 @@ void simple_sort(t_list **stack_a, t_list **stack_b, int size)
         tmp = *stack_a;
         for (j = 0; j < size - i; j++)
         {
-            if (*(int *)tmp->content < *(int *)min_node->content)
+            if (tmp->content < min_node->content)
             {
                 min_node = tmp;
             }
@@ -46,11 +69,11 @@ void simple_sort(t_list **stack_a, t_list **stack_b, int size)
     }
 }
 
-void insertion_sort(t_list **stack_a, t_list **stack_b, int size)
+void insertion_sort(t_stack **stack_a, t_stack **stack_b, int size)
 {
     int i, j;
-    t_list *tmp;
-    t_list *min_node;
+    t_stack *tmp;
+    t_stack *min_node;
 
     i = 0;
     while (i < size)
@@ -60,7 +83,7 @@ void insertion_sort(t_list **stack_a, t_list **stack_b, int size)
         j = 0;
         while (j < size - i)
         {
-            if (*(int *)tmp->content < *(int *)min_node->content)
+            if (tmp->content < min_node->content)
             {
                 min_node = tmp;
             }
