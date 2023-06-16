@@ -6,7 +6,7 @@
 /*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:36:36 by jkulka            #+#    #+#             */
-/*   Updated: 2023/06/16 12:14:36 by dylan            ###   ########.fr       */
+/*   Updated: 2023/06/16 13:20:47 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ t_stack *ft_init(int argc, char *argv[])
   stack_a = NULL;
   if(argc <= 2)
   {
-	printf(RED"ERROR\n"WHT"Give at least 2 numbers"); 
+	// printf(RED"ERROR\n"WHT"Give at least 2 numbers"); 
+  write(2, "Error\n", 6);
 	return NULL;
   }
   ft_fill_list(&stack_a, argc, argv);
