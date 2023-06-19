@@ -7,11 +7,12 @@ LIB		= libft/libft.a
 SRC = main.c \
 	list_utils.c \
 	init.c \
-	instructions_s.c \
-	instructions_p.c \
-	instructions_r.c \
-	instructions_r2.c \
+	instructions/instructions_s.c \
+	instructions/instructions_p.c \
+	instructions/instructions_r.c \
+	instructions/instructions_r2.c \
 	push_swap.c 	\
+	three_sort.c
 
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ) | lft

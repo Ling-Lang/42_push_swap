@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:34:29 by dylan             #+#    #+#             */
-/*   Updated: 2023/06/16 12:17:57 by dylan            ###   ########.fr       */
+/*   Updated: 2023/06/19 11:14:05 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,12 @@
 // }
 int main(int argc, char *argv[]) {
     t_stack *stack_a;
-    t_list *stack_b = NULL; // Initialize stack_b to NULL
+    t_stack *stack_b = NULL; // Initialize stack_b to NULL
 
     int size;
     size = argc - 1; // The size of stack_a is argc - 1
     stack_a =  ft_init(argc, argv);
-    if(argc <= 5)
-    {
-        mini_sort(&stack_a, &stack_b);
-    }
-    else
-    insertion_sort(&stack_a, &stack_b, argc -1);
-
-        
+    sort(stack_a, stack_b);
     // print_list(stack_a);
     return 0;
 }

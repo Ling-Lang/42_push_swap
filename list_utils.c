@@ -10,26 +10,26 @@ void print_list(t_stack *lst)
   }
 }
 
-void reverseLinkedList(t_list **list)
-{
-    t_list *current = *list;
-    t_list *previous = NULL;
-    t_list *next = NULL;
+// void reverseLinkedList(t_stack **list)
+// {
+//     t_stack *current = *list;
+//     t_stack *previous = NULL;
+//     t_stack *next = NULL;
 
-    while (current != NULL) {
-        next = current->next;  // Store the next node
+//     while (current != NULL) {
+//         next = current->next;  // Store the next node
 
-        // Reverse the link
-        current->next = previous;
+//         // Reverse the link
+//         current->next = previous;
 
-        // Move pointers one position ahead
-        previous = current;
-        current = next;
-    }
+//         // Move pointers one position ahead
+//         previous = current;
+//         current = next;
+//     }
 
-    // Update the head of the list
-    *list = previous;
-}
+//     // Update the head of the list
+//     *list = previous;
+// }
 
 int list_size(t_stack *stack)
 {
