@@ -6,67 +6,66 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:28:55 by jkulka            #+#    #+#             */
-/*   Updated: 2023/06/19 11:29:15 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/06/19 18:43:09 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	three_sort_a(t_stack *a)
+void	three_sort_a(t_stack **a)
 {
 	int	last;
 	int	first;
 	int	second;
 	// print_list(a);
-	first = a->content;
-	second = a->next->content;
-	last = a->next->next->content;
+	first = (*a)->content;
+	second = (*a)->next->content;
+	last = (*a)->next->next->content;
 
 	if (first > second && second < last && last < first)
-		ra(&a);
+		ra(a);
 	else if (first > second && second < last && last > first)
-		sa(&a);
+		sa(a);
 	else if (first < second && second > last && last < first)
-		rra(&a);
+		rra(a);
 	else if (first < second && second > last && last > first)
 	{
-		ra(&a);
-		sa(&a);
-		rra(&a);
+		sa(a);
+		ra(a);
 	}
 	else if (first > second && second > last && last < first)
 	{
-		sa(&a);
-		rra(&a);
+		sa(a);
+		rra(a);
 	}
 	return ;
 }
-void	three_sort_b(t_stack *b)
+void	three_sort_b(t_stack **b)
 {
 	int	last;
 	int	first;
 	int	second;
 	// print_list(a);
-	first = b->content;
-	second = b->next->content;
-	last = b->next->next->content;
+	first = (*b)->content;
+	second = (*b)->next->content;
+	last = (*b)->next->next->content;
 
 	if (first > second && second < last && last < first)
-		rb(&b);
+		rb(b);
 	else if (first > second && second < last && last > first)
-		sb(&b);
+		sb(b);
 	else if (first < second && second > last && last < first)
-		rrb(&b);
+		rrb(b);
 	else if (first < second && second > last && last > first)
 	{
-		rb(&b);
-		sb(&b);
-		rrb(&b);
+		rb(b);
+		sb(b);
+		rrb(b);
 	}
 	else if (first > second && second > last && last < first)
 	{
-		sb(&b);
-		rrb(&b);
+		sb(b);
+		rrb(b);
 	}
 	return ;
 }

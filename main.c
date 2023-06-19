@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:34:29 by dylan             #+#    #+#             */
-/*   Updated: 2023/06/19 11:14:05 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/06/19 18:39:01 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
     int size;
     size = argc - 1; // The size of stack_a is argc - 1
     stack_a =  ft_init(argc, argv);
-    sort(stack_a, stack_b);
+    sort(&stack_a, &stack_b, size);
     // print_list(stack_a);
     return 0;
 }

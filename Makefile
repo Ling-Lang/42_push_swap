@@ -12,7 +12,9 @@ SRC = main.c \
 	instructions/instructions_r.c \
 	instructions/instructions_r2.c \
 	push_swap.c 	\
-	three_sort.c
+	three_sort.c	\
+	two_sort.c		\
+	five_sort.c
 
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ) | lft
@@ -26,4 +28,4 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	(cd libft && make fclean)
-make re: fclean all
+make re: fclean $(NAME)
