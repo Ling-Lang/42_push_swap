@@ -3,69 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkulka <jkulka@student.42heilbronn.de >    +#+  +:+       +#+        */
+/*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 13:36:36 by jkulka            #+#    #+#             */
-/*   Updated: 2023/06/20 02:50:41 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/06/20 12:13:02 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void 	ft_init(int argc, char *argv[])
-// {
-// 	t_stack	*stack_a;
-// 	t_stack	*stack_b;
-// 	int		i;
-// 	int *arr;
-// 	int j;
-
-// 	i = 1;
-// 	j = -1;
-// 	stack_a = NULL;
-// 	stack_b = NULL;
-// 	arr = malloc(sizeof(int) * argc);
-// 	ft_fill_list(&stack_a, argc, argv);
-// 	while(i < argc)
-// 	{
-//     	// write(1, "A\n", 3);
-// 		arr[++j] = ft_atoi(argv[i]);
-// 		printf("Val arr[i]:%d", arr[i]);
-// 		i++;
-// 	}
-//     sort(&stack_a, &stack_b, argc - 1, &arr);
-// }
-void 	ft_init(int argc, char *argv[])
+void	ft_init(int argc, char **argv, int i, int len)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		i;
-	int *arr;
-	int j;
+	t_stack	*a;
+	t_stack	*b;
+	t_stack	*new;
+	int		*arr;
+	int		j;
 
-	i = 1;
+	a = NULL;
+	b = NULL;
+	if (len != 0)
+		arr = malloc(sizeof(int) * (argc));
+	else
+		arr = malloc(sizeof(int) * (argc - 1));
+	if (arr == NULL)
+		exit(1);
 	j = -1;
-	stack_a = NULL;
-	stack_b = NULL;
-	arr = malloc(sizeof(int) * argc);
-	if (arr == NULL) {
-		// fprintf(stderr, "Failed to allocate memory for arr\n");
-		return;
-	}
-	ft_fill_list(&stack_a, argc, argv);
-	while(i < argc)
+	while (i < argc)
 	{
+		check_digits(argv, i);
 		arr[++j] = ft_atoi(argv[i]);
-		if (j >= argc) {
-			// fprintf(stderr, "Array index out of bounds\n");
-			free(arr);
-			return;
-		}
+		new = ft_stacknew(ft_atoi(argv[i]));
+		ft_stackadd_back(&a, new);
 		i++;
 	}
-	// print_list(stack_a);
-    sort(&stack_a, &stack_b, argc - 1, arr);
-    free(arr);
+	sort(&a, &b, ft_stack_size(&a), arr);
+	ft_free(&a, &b, arr);
 }
 
 void	ft_add_content(t_stack **lst, int content_to_add)
@@ -89,15 +62,4 @@ void	ft_add_content(t_stack **lst, int content_to_add)
 		last_node = last_node->next;
 	last_node->next = node;
 	node->previous = last_node;
-}
-
-void	ft_fill_list(t_stack **lst, int argc, char *argv[])
-{
-	int j = 1;
-	while (j < argc)
-	{
-		int data = atoi(argv[j]);
-		ft_add_content(lst, data);
-		j++;
-	}
 }

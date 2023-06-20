@@ -1,11 +1,10 @@
 NAME = push_swap
 RM = rm -f
 CC = gcc
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -Werror
 LIB		= libft/libft.a
 
-SRC = main.c \
-	list_utils.c \
+SRC = list_utils.c \
 	init.c \
 	instructions/instructions_s.c \
 	instructions/instructions_p.c \
@@ -17,7 +16,10 @@ SRC = main.c \
 	five_sort.c		\
 	four_sort.c		\
 	sort_array.c	\
-	big_sort.c
+	big_sort.c		\
+	stack_utils.c	\
+	error.c 		\
+	cleanup.c		\
 
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ) | lft

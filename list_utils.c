@@ -1,50 +1,45 @@
-#include "libft/src/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jkulka <jkulka@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/20 11:45:12 by jkulka            #+#    #+#             */
+/*   Updated: 2023/06/20 11:45:14 by jkulka           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void print_list(t_stack *lst)
+int	list_size(t_stack *stack)
 {
-  while (lst != NULL)
-  {
-    printf("%d\n", lst->content);
-    lst = lst->next;
-  }
+	int	size;
+
+	size = 0;
+	while (stack != NULL)
+	{
+		size++;
+		stack = stack->next;
+	}
+	return (size);
 }
 
-int list_size(t_stack *stack)
+void	ft_lstorder(t_stack **a, int *c)
 {
-    int size = 0;
-    while (stack != NULL)
-    {
-        size++;
-        stack = stack->next;
-    }
-    return size;
+	int		i;
+	t_stack	*stack;
+
+	stack = *a;
+	while (stack)
+	{
+		i = 0;
+		while (stack->content != c[i])
+			i++;
+		stack->order = i;
+		stack = stack->next;
+	}
 }
-
-bool is_empty(t_stack **stack)
-{
-    if (*stack == NULL)
-    {
-        return true;
-    }
-    return false;
-}
-
-bool is_sorted(t_stack *stack)
-{
-    while (stack->next != NULL)
-    {
-        if (stack->content > stack->next->content)
-        {
-            return false;
-        }
-        stack = stack->next;
-    }
-    return true;
-}
-
-
-
 
 void	ft_find_min(t_stack **a, int *c, int order, int arg)
 {
