@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkulka <jkulka@student.42heilbronn.de >    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 18:34:39 by dylan             #+#    #+#             */
-/*   Updated: 2023/06/20 02:49:13 by jkulka           ###   ########.fr       */
+/*   Created: 2023/06/20 01:24:16 by jkulka            #+#    #+#             */
+/*   Updated: 2023/06/20 02:01:28 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort(t_stack **stack_a, t_stack **stack_b, int size, int *arr)
+void insertionSort(int *arr, int n)
 {
-    insertionSort(arr, size);
-   
-    if(size == 2)
-        two_sort_a(stack_a);
-    else if (size == 3)
-		three_sort_a(stack_a);
-	else if (size == 4)
-        ft_four_sort(stack_a, stack_b, arr);
-    else if (size == 5)
-        ft_five_sort(stack_a, stack_b, arr);
-    else
+    int i;
+    int key;
+    int  j;
+    
+    i = 0;
+    while(i < n)
     {
-        sort_big_stack(stack_a, stack_b, size);
+        key = arr[i];
+        j = i - 1;
+        while (j >= 0 && arr[j] > key) 
+        {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+        i++;
     }
-    return ;
 }

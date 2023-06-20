@@ -14,7 +14,10 @@ SRC = main.c \
 	push_swap.c 	\
 	three_sort.c	\
 	two_sort.c		\
-	five_sort.c
+	five_sort.c		\
+	four_sort.c		\
+	sort_array.c	\
+	big_sort.c
 
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ) | lft
